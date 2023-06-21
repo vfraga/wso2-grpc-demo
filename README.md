@@ -44,7 +44,7 @@ python $PROJECT_HOME/python/client.py
 - Maven >= 3.6
 - Java 11
 
-From $PROJECT_HOME/java run:
+From `$PROJECT_HOME/java` run:
 ```
 mvn clean install
 ```
@@ -56,7 +56,7 @@ java -jar $PROJECT_HOME/java/target/oauth-client-1.0-SNAPSHOT.jar
 ---
 ## Javascript
 
-From $PROJECT_HOME/javascript run:
+From `$PROJECT_HOME/javascript` run:
 ```
 npm install
 ```
