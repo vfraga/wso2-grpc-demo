@@ -273,4 +273,5 @@ if __name__ == "__main__":
     try:
         loop.run_until_complete(serve())
     finally:
+        loop.run_until_complete(*_CLEANUP_COROUTINES)
         loop.close()
