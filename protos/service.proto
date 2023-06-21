@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package oauthservice;
+
+option java_package = "service";
+
+
+// An OAuth service that redirects RPC calls to their respective REST API an endpoint.
+service OAuthService {
+
+  // Attempts to retrieve tokens from an OAuth Identity Provider using the Device Code grant.
+  rpc Authenticate (Empty) returns (stream AuthResponse) {}
+
+  // Introspects a token on the OAuth Identity Provider
+  rpc Introspect (IntrospectRequest) returns (IntrospectResponse) {}
+
+  // Gets info on the subject of the token returned by the OAuth Identity Provider
+  rpc UserInfo (UserInfoRequest) returns (UserInfoResponse) {}
+
+  // Invalidates the token returned by the OAuth Identity Provider
+  rpc Revoke (RevokeRequest) returns (Empty) {}
+}
+
+// Placeholder for requests that don't require parameters
+message Empty {}
+
+// Response message from the gRPC server that tracks the status of the authentication and returns the tokens if successful
+message AuthResponse {
+  string message = 1;
+  optional string access_token = 2;
+  optional string refresh_token = 3;
+}
+
+// Requests the gRPC server to introspect the token in the message.
+message IntrospectRequest {
+  string token = 1;
+}
+
+// Response message of the gRPC server on whether token is active.
+message IntrospectResponse {
+  bool active = 1;
+}
+
+// Requests the gRPC server for information on the subject of the token.
+message UserInfoRequest {
+  string token = 1;
+}
+
+// Response message of the gRPC server containing information on the subject of the token.
+message UserInfoResponse {
+  string info = 1;
+}
+
+// Requests the gRPC server to revoke the token in the message.
+message RevokeRequest {
+  string token = 1;
+}
