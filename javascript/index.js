@@ -1,4 +1,5 @@
-const PROTO_PATH = "/Users/viniciusf/PycharmProjects/wso2_demo_grpc_server/protos/service.proto";
+const PROTO_PATH = __dirname.split('/').slice(0, -1).join('/') + "/protos/service.proto";
+// Get PROJECT_HOME path by getting javascript dir and removing one level
 
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
