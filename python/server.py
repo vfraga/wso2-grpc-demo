@@ -254,8 +254,8 @@ async def serve() -> None:
                 revoke=f"https://{is_host}:{is_port}/oauth2/revoke",
                 user_info=f"https://{is_host}:{is_port}/oauth2/userinfo"
             ),
-            client_id="8p4o4oO_xK7wtSlfTYMQSCZfwwca",
-            client_secret="UFBCRGpbxDrjq7EHM9Hxu1w7wVAa"
+            client_id="PLEASE_ADD_CLIENT_KEY",
+            client_secret="PLEASE_ADD_CLIENT_SECRET"
         ),
         server=aio_server
     )
